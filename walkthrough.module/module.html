@@ -1,0 +1,49 @@
+<div id="{{ name }}" class="hide">
+  {% for item in module.walkthroughs %}
+    {% set group = item.start_target|replace(".", "")|replace(" ", "")|replace("#", "") %}
+    {% set index = loop.index %}
+    <div data-group="wt__{{ group }}" class="introjs__item wt__{{ group }}" data-start="{{ item.start_target }}" data-intro-group="wt__{{ group }}"> 
+      {% for step in item.steps %}
+        <div class="introjs__data" class="wt__{{ group }}" data-scroll-to="tooltip" data-step="{{ loop.index }}" data-title="{{ step.title }}" data-content="{{ step.content }}" data-target="{{ step.target }}" data-intro-group="wt__{{ group }}"></div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+
+{% require_js position="footer" defer="true" %}
+<script>
+(function() {
+  const init_walkthroughs = function() {
+    const wt_items = $(".introjs__item");
+    let all_buttons = [];
+    wt_items.each(function() {
+      let data = $(this).children(),
+          id = $(this).attr("data-intro-group"),
+          start_button = $(this).attr("data-start"),
+          payload = [];
+      data.each(function() {
+        let target = `${$(this).attr("data-target")}`,
+            title = $(this).attr("data-title"),
+            step = $(this).attr("data-step"),
+            intro = $(this).attr("data-content");
+        $(target).addClass(id);
+        $(target).attr("data-scroll-to", "tooltip");
+        $(target).attr("data-title", title);
+        $(target).attr("data-intro", intro);
+        $(target).attr("data-step", step);
+        $(target).attr("data-intro-group", id);
+      });
+      $(start_button).find("a").on("click", function(e) {
+        e.preventDefault();
+      });
+      $(start_button).on("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        introJs().setOption("group", id).start();
+      });
+    });
+  };
+  init_walkthroughs();
+}());
+</script>
+{% end_require_js %}

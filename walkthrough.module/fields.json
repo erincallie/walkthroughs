@@ -1,0 +1,80 @@
+[ {
+  "id" : "1cdaa216-5c83-6dc0-9faf-ba8fdecd0aa1",
+  "name" : "walkthroughs",
+  "display_width" : null,
+  "label" : "Walkthroughs",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : null,
+    "max" : null,
+    "sorting_label_field" : "a1027552-c04b-365c-2673-bb7cf021d76f",
+    "default" : null
+  },
+  "children" : [ {
+    "id" : "a1027552-c04b-365c-2673-bb7cf021d76f",
+    "name" : "start_target",
+    "display_width" : null,
+    "label" : "Start Target",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text"
+  }, {
+    "id" : "007eff56-3fda-9002-eb2e-5c887fa668d7",
+    "name" : "steps",
+    "display_width" : null,
+    "label" : "Steps",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : "71ccb00a-ec81-8e88-4583-e6999a55143b",
+      "default" : null
+    },
+    "children" : [ {
+      "id" : "65d9c9a3-4143-8b74-688e-60df934bed7b",
+      "name" : "target",
+      "display_width" : null,
+      "label" : "Target",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text"
+    }, {
+      "id" : "71ccb00a-ec81-8e88-4583-e6999a55143b",
+      "name" : "title",
+      "display_width" : null,
+      "label" : "Title",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text"
+    }, {
+      "id" : "376996cb-e76c-eb93-c460-a3fe33e12746",
+      "name" : "content",
+      "display_width" : null,
+      "label" : "Content",
+      "required" : false,
+      "locked" : false,
+      "type" : "richtext"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : { }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "steps" : { }
+  }
+} ]
